@@ -7,9 +7,9 @@
 
 Para instalar y utilizar **robbi**, sigue estos pasos:
 
-    ```bash
-    npm install robbi
-    ```
+```bash
+npm install robbi
+```
 
 ## Uso
 
@@ -31,16 +31,19 @@ Al usar {periodic} se ejecutara la tarea proporcionada periodicamente segun el t
 ```javascript
     const { periodic } = require('robbi');
 
-    // Ejecuta una tarea cada 5 minutos
+    // Ejecuta una tarea cada 10 segundos
     periodic({ s: 10 }, () => {
     console.log('Tarea ejecutada cada 10 segundos');
     });
 ```
+### Programación espesifica
+
+Al usar {spesific} se ejecutara la tarea a la hora o dia espesificado
 
 ```javascript
     const { spesific } = require('robbi');
 
-    // Ejecuta una tarea cada 5 minutos
+    // Ejecuta una tarea cada dia a las 10 y 20 am
     spesific({ h: 10, m:20 }, () => {
     console.log('Tarea ejecutada cada dia a las 10 y 20 am');
     });
@@ -49,13 +52,16 @@ Al usar {periodic} se ejecutara la tarea proporcionada periodicamente segun el t
 ```javascript
     const { spesific } = require('robbi');
 
-    // Ejecuta una tarea cada 5 minutos
+    // Ejecuta una tarea cada lunes
     spesific({ w:1 }, () => {
     console.log('Tarea ejecutada cada lunes');
     });
 ```
 
 ## Objeto de tiempo
+
+para usar las tareas de robbi se le deben pasar 2 parametros, un objeto de tiempo y un callback, 
+dentro de tu callback deberas colocar la tarea que quieres realizar
 
 ```javascript
 {
